@@ -12,7 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
     
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -20,7 +20,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="d-flex align-items-center mb-2">
-                    <img src="{{ url_for('static', filename='images/bookshelf.svg') }}" alt="Bookshelf" class="bookshelf-icon">
+                    <img src="/static/images/bookshelf.svg" alt="Bookshelf" class="bookshelf-icon">
                     <h1 class="header-title">Biblioteca Virtuale</h1>
                 </div>
                 <p class="header-subtitle">Generatore di Bibliografia Accademica</p>
@@ -33,7 +33,7 @@
         <div class="container">
             <div class="app-container">
                 <div class="book-animation">
-                    <img src="{{ url_for('static', filename='images/book-open.svg') }}" alt="Book">
+                    <img src="/static/images/book-open.svg" alt="Book">
                 </div>
                 
                 <h2>Generatore di Bibliografia</h2>
@@ -133,6 +133,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
     
     <!-- Custom JS -->
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="/static/js/script.js"></script>
 </body>
 </html>

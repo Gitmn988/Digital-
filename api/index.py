@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request, Response
+from flask import Flask, render_template, jsonify, request, Response, send_from_directory
 import logging
 import traceback
 import os
@@ -39,6 +39,16 @@ try:
         except Exception as e:
             logger.error(f"Errore nel rendering della homepage: {str(e)}")
             logger.error(traceback.format_exc())
+            return jsonify({"error": str(e)}), 500
+
+    @app.route('/static/<path:filename>')
+    def serve_static(filename):
+        """Serve static files explicitly"""
+        try:
+            logger.debug(f"Servendo file static: {filename}")
+            return send_from_directory(static_folder, filename)
+        except Exception as e:
+            logger.error(f"Errore nel servire file statico: {filename}, {str(e)}")
             return jsonify({"error": str(e)}), 500
 
     @app.route('/api/health', methods=['GET'])
