@@ -1,4 +1,4 @@
-from flask import Flask, render_template, jsonify, request
+from flask import Flask, render_template, jsonify, request, Response
 import logging
 import traceback
 import os
@@ -25,6 +25,10 @@ try:
               template_folder=template_folder)
 
     app.secret_key = os.environ.get("SESSION_SECRET", "dev-secret-key")
+    
+    # Handler per Vercel serverless
+    def handler(environ, start_response):
+        return app(environ, start_response)
 
     @app.route('/', methods=['GET'])
     def home():
