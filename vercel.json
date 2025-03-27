@@ -2,12 +2,11 @@
   "version": 2,
   "builds": [
     {
-      "src": "api/serverless.py",
+      "src": "main.py",
       "use": "@vercel/python",
       "config": {
         "maxLambdaSize": "50mb",
-        "runtime": "python3.9",
-        "includeFiles": ["templates/**", "static/**"]
+        "runtime": "python3.9"
       }
     },
     {
@@ -25,7 +24,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "/api/serverless.py"
+      "dest": "/main.py"
     }
   ],
   "env": {
