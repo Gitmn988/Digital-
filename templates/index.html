@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblioteca - Generatore di Bibliografia</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="d-flex align-items-center mb-2">
+                    <img src="{{ url_for('static', filename='images/bookshelf.svg') }}" alt="Bookshelf" class="bookshelf-icon">
+                    <h1 class="header-title">Biblioteca Virtuale</h1>
+                </div>
+                <p class="header-subtitle">Generatore di Bibliografia Accademica</p>
+            </div>
+        </div>
+    </header>
+    
+    <!-- Main Content -->
+    <main>
+        <div class="container">
+            <div class="app-container">
+                <div class="book-animation">
+                    <img src="{{ url_for('static', filename='images/book-open.svg') }}" alt="Book">
+                </div>
+                
+                <h2>Generatore di Bibliografia</h2>
+                
+                <div class="mode-selector">
+                    <label for="modalita">Seleziona la modalità di ricerca:</label>
+                    <select id="modalita" class="form-select">
+                        <option value="semplice">Ricerca Semplice</option>
+                        <option value="avanzata">Ricerca Avanzata</option>
+                    </select>
+                </div>
+                
+                <!-- Simple Search Mode -->
+                <div id="inputContainer" class="search-container">
+                    <div class="form-group">
+                        <label for="titoloSemplice">Inserisci il titolo dell'opera:</label>
+                        <input type="text" id="titoloSemplice" class="form-control" placeholder="Es. Il nome della rosa">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="formatoSemplice">Formato citazione:</label>
+                        <select id="formatoSemplice" class="form-select">
+                            <option value="MLA">MLA - Modern Language Association</option>
+                            <option value="Chicago">Chicago Manual of Style</option>
+                            <option value="APA">APA - American Psychological Association</option>
+                        </select>
+                    </div>
+                    
+                    <button id="simpleSearchBtn" class="btn">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-search">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                        </svg>
+                        Cerca Bibliografia
+                    </button>
+                </div>
+                
+                <!-- Advanced Search Mode -->
+                <div id="formContainer" style="display: none;"></div>
+                
+                <!-- Results Section -->
+                <div class="results-section">
+                    <h3>Risultati della Ricerca</h3>
+                    <div id="result"></div>
+                    <p id="error-message"></p>
+                </div>
+            </div>
+            
+            <!-- Information Section -->
+            <div class="app-container">
+                <h2>Guida ai Formati di Citazione</h2>
+                
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Formato MLA</h5>
+                                <p class="card-text">Il formato MLA (Modern Language Association) è comunemente utilizzato nelle discipline umanistiche, in particolare letteratura e lingue.</p>
+                                <p><strong>Esempio:</strong> <br>Eco, Umberto. <i>Il nome della rosa</i>. Milano: Bompiani, 1980.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Formato Chicago</h5>
+                                <p class="card-text">Il Chicago Manual of Style è ampiamente utilizzato nelle pubblicazioni storiche e in alcune discipline delle scienze sociali.</p>
+                                <p><strong>Esempio:</strong> <br>Eco, Umberto. <i>Il nome della rosa</i>. Milano: Bompiani, 1980.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">Formato APA</h5>
+                                <p class="card-text">Il formato APA (American Psychological Association) è utilizzato principalmente nelle scienze sociali e comportamentali.</p>
+                                <p><strong>Esempio:</strong> <br>Eco, U. (1980). <i>Il nome della rosa</i>. Milano: Bompiani.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2023 Biblioteca Virtuale - Generatore di Bibliografia</p>
+            <p>Uno strumento accademico per citazioni bibliografiche professionali</p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JS -->
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
